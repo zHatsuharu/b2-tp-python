@@ -49,24 +49,22 @@ Le jeu se présentera comme cela :
 
 
 ------------------------------------------------------------------------------------
-    ██████╗ ██╗      █████╗  ██████╗██╗  ██╗         ██╗ █████╗  ██████╗██╗  ██╗
-    ██╔══██╗██║     ██╔══██╗██╔════╝██║ ██╔╝         ██║██╔══██╗██╔════╝██║ ██╔╝
-    ██████╔╝██║     ███████║██║     █████╔╝          ██║███████║██║     █████╔╝
-    ██╔══██╗██║     ██╔══██║██║     ██╔═██╗     ██   ██║██╔══██║██║     ██╔═██╗
-    ██████╔╝███████╗██║  ██║╚██████╗██║  ██╗    ╚█████╔╝██║  ██║╚██████╗██║  ██╗
-    ╚═════╝ ╚══════╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝     ╚════╝ ╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝
+    ██████╗ ██╗      █████╗  ██████╗██╗  ██╗         ██╗ █████╗  ██████╗██╗  ██╗    
+    ██╔══██╗██║     ██╔══██╗██╔════╝██║ ██╔╝         ██║██╔══██╗██╔════╝██║ ██╔╝    
+    ██████╔╝██║     ███████║██║     █████╔╝          ██║███████║██║     █████╔╝     
+    ██╔══██╗██║     ██╔══██║██║     ██╔═██╗     ██   ██║██╔══██║██║     ██╔═██╗     
+    ██████╔╝███████╗██║  ██║╚██████╗██║  ██╗    ╚█████╔╝██║  ██║╚██████╗██║  ██╗    
+    ╚═════╝ ╚══════╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝     ╚════╝ ╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝    
 ------------------------------------------------------------------------------------
 
 
-Vous recevez une carte : 7 de Carreau
+Vous recevez une carte : 4 de Coeur
 
 Le croupier reçoit une carte.
 
-Vous recevez une carte : 10 de Coeur
+Vous recevez une carte : 9 de Trèfle
 
-Le croupier reçoit une carte.
-
-Vous commencez avec : 17 points
+Vous commencez avec : 13 points
 
 ------------------------------------------------------------------------------------
 
@@ -77,14 +75,14 @@ Entrer une action (pioche / stop) : █
 ---
 Au début du jeu, le programme s'occuper de vider le terminal pour plus de propreté en terme d'affichage.
 
-Au début de la partie une boucle ``for`` s'occupe d'effectuer les 2 premiers tirages de la pioche.  Une fois les cartes données, une boucle ``while`` démarre avec comme condition, si le croupier ou le joueur est encore en jeu, la boucle continue.
+Au début de la partie le joueur possède 2 cartes et le croupier 1 carte.
 
 Dans la boucle ``while``, si le joueur est en jeu, on lui demande si il veut piocher, ou arrêter. Si la commande n'est pas comprise, on redemande au joueur une nouvelle fois.
 
-Si le joueur décide de piocher, il tire alors une des cartes restantes dans le deck et on lui ajoute sa valeur au compteur du joueur. Si jamais il excède 21, on force le joueur à arrêter.
+Si le joueur décide de piocher, il tire alors une des cartes restantes dans le deck et on lui ajoute sa valeur au compteur du joueur. Si jamais il excède 21, le joueur perd instantanément.
 
-Si le joueur décide de stop, alors il ne peut plus jouer et doit attendre que le croupier termine.
+Si le joueur décide de stop, alors il ne peut plus jouer et doit attendre le tour du croupier.
 
-Une fois que le joueur fait une action, le croupier joue à son tour. Il tire des cartes tant que la valeur de sa main n'excède pas 16.
+Le croupier piochera jusqu'à ce que la valeur de sa main excède 16, si jamais sa main excède 21, le croupier perd instantanément.
 
-Quand les 2 joueurs ont arrêté de jouer, les résultats tombent. Si les 2 joueurs excèdent 21 ou que leurs mains ont la même valeur, alors c'est une égalité. Sinon, c'est celui qui est en dessous de 21 ou celui qui se rapproche le plus de 21 qui gagne la partie.
+Si le joueur et le croupier son en dessous de 21 et qu'ils décident d'arrêter de tirer les cartes, les résultats tombent. Celui qui est le plus proche de 21 gagne, si les valeurs des deux joueurs sont égales, alors il y a égalité.
